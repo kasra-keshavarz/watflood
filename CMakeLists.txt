@@ -33,6 +33,20 @@ cmake_minimum_required(VERSION 3.20)
 # project name
 project(WATFLOOD Fortran)
 
+# WATFLOOD version
+set(CHARM_MAJOR_VERSION 1)
+set(CHARM_MINOR_VERSION 0)
+set(CHARM_PATCH_VERSION 0)
+set(
+   CHARM_VERSION
+   ${CHARM_MAJOR_VERSION}.${CHARM_MINOR_VERSION}.${CHARM_PATCH_VERSION}
+   )
+
+set(CMAKE_PROJECT_DESCRIPTION "Flood Forecasting with WATFLOOD®/CHARM®")
+set(CMAKE_PROJECT_HOMEPAGE_URL "http://http://www.watflood.ca")
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
 # Check whether the user has selected a BUILD_TYPE
 # two build types available: DEBUG, RELEASE
 # default is RELEASE

@@ -1,0 +1,6 @@
+# The fortran modules provided by this target.
+provides
+ area17.mod
+ area_debug.mod
+ area_watflood.mod
+ areacg.mod
