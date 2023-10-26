@@ -1,4 +1,4 @@
-project(area Fortran)
+project(core Fortran)
 
 set(CORE_SOURCES
    area17.f
