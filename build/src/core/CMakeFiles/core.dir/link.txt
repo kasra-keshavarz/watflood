@@ -1,2 +1,0 @@
-/cvmfs/soft.computecanada.ca/gentoo/2020/usr/bin/ar qc libcore.a CMakeFiles/core.dir/area17.f.o CMakeFiles/core.dir/Areacg.f.o CMakeFiles/core.dir/area_debug.f90.o CMakeFiles/core.dir/area_watflood.f.o
-/cvmfs/soft.computecanada.ca/gentoo/2020/usr/bin/ranlib libcore.a

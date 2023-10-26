@@ -1,5 +1,0 @@
-    Info:   runtime    16:24:26
-    Info:   rundate  2023-10-26
- Warning: If program dies here, possibly there are forward 
- Warning: slashes in the event file
- Warning: please convert / to \ in event files
