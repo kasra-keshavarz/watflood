@@ -49,4 +49,5 @@ foo@bar:watflood $ cmake -DCMAKE_BUILD_TYPE=RELEASE ../
 ```
 
 # License
-
+WATFLOOD/CHARM is published under the GNU Lesser General Public License
+v3.0 or later.
