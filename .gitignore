@@ -33,3 +33,9 @@
 
 # CMAKE stuff
 build/
+
+# Visual Studio stuff
+.vs/
+
+# Mac OS stuff
+.DS_Store

@@ -24,28 +24,31 @@
 #
 # CMAKE build file for WATFLOOD/CHARM
 # Options:
-# -D CMAKE_BUILD_TYPE=debug
-# -D CMAKE_Fortran_COMPILER=gfortran/ifort
+# -D CMAKE_BUILD_TYPE=RELEASE/DEBUG
+# -D CMAKE_Fortran_COMPILER=ifort/gfortran (or
+#       -D CMAKE_Fortran_COMPILER:FILEPATH=/path/to/ifort/or/gfortran)
 
-# minimum version set to 3.20.0
+# minimum version set to 3.20
 cmake_minimum_required(VERSION 3.20)
 
 # project name
 project(WATFLOOD Fortran)
 
 # WATFLOOD version
-set(CHARM_MAJOR_VERSION 1)
-set(CHARM_MINOR_VERSION 0)
-set(CHARM_PATCH_VERSION 0)
+set(CHARM_MAJOR_VERSION 10)
+set(CHARM_MINOR_VERSION 5)
+set(CHARM_PATCH_VERSION 19)
 set(
    CHARM_VERSION
    ${CHARM_MAJOR_VERSION}.${CHARM_MINOR_VERSION}.${CHARM_PATCH_VERSION}
    )
+# package information
+set(CMAKE_PROJECT_VERSION_MAJOR ${CHARM_MAJOR_VERSION})
+set(CMAKE_PROJECT_VERSION_MINOR ${CHARM_MINOR_VERSION})
+set(CMAKE_PROJECT_VERSION_PATCH ${CHARM_PATCH_VERSION})
 
 set(CMAKE_PROJECT_DESCRIPTION "Flood Forecasting with WATFLOOD®/CHARM®")
 set(CMAKE_PROJECT_HOMEPAGE_URL "http://http://www.watflood.ca")
-
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 # Check whether the user has selected a BUILD_TYPE
 # two build types available: DEBUG, RELEASE
@@ -58,11 +61,23 @@ ENDIF()
 message(STATUS "Build type is set to ${CMAKE_BUILD_TYPE}")
 message(STATUS "Change build type with -DCMAKE_BUILD_TYPE=DEBUG/RELEASE")
 
-set(CMAKE_Fortran_MODULE_DIRECTORY ${PROJECT_BINARY_DIR}/include) 
+# CPack packaging
+set(CPACK_PACKAGE_CHECKSUM SHA256)
+set(CPACK_RESOURCE_FILE_LICENSE "${PROJECT_SOURCE_DIR}/LICENSE")
+set(CPACK_RESOURCE_FILE_README "${PROJECT_SOURCE_DIR}/README.md")
+set(CPACK_GENERATOR "TGZ")
+set(CPACK_SOURCE_GENERATOR "TGZ")
+include(CPack)
 
+# module directory definitions
+set(CMAKE_Fortran_MODULE_DIRECTORY ${PROJECT_BINARY_DIR}/include) 
 include_directories(${CMAKE_Fortran_MODULE_DIRECTORY})
 file(MAKE_DIRECTORY ${CMAKE_Fortran_MODULE_DIRECTORY})
 
+# exectuable directory
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)
+
+# install prefix
 set(CMAKE_INSTALL_PREFIX ${PROJECT_BINARY_DIR})
 
 # if DEBUG requested, set the various debug options.

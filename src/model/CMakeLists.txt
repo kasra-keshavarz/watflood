@@ -1,7 +1,7 @@
 project(model Fortran)
 
 set(PROJECT_EXECUTABLE
-   CHARM
+   charm 
    )
 
 set(MODEL_SOURCES
@@ -92,7 +92,6 @@ set(MODEL_SOURCES
    write_sensitivity.f
    write_soilinit.f
    write_wfo.f
-   CHARM.f90
 )
 
 message(STATUS "Sources for MODEL: ${MODEL_SOURCES}")
