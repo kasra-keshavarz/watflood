@@ -11,8 +11,8 @@ needed to compile WATFLOOD/CHARM source code. Once available, you may
 proceed with creating a `build` directory (preferably in the source
 code's root directory) and start the build process:
 ```console
-foo@bar:watflood $ mkdir build
-foo@bar:watflood $ cmake ../
+foo@bar:watflood $ mkdir build && cd build
+foo@bar:build $ cmake ../
 ```
 
 ## Specifying `ifort` compiler
@@ -21,16 +21,16 @@ Currently, WATFLOOD/CHARM can **only** be compiled with
 To specify the compiler to the build process, you may use the following
 command on Unix-like systems:
 ```console
-foo@bar:watflood $ cmake -DCMAKE_Fortran_COMPILER=ifort ../
+foo@bar:build $ cmake -DCMAKE_Fortran_COMPILER=ifort ../
 ```
 Or, if the path to `ifort` is not located in the `$PATH` environment
 variable, you can do the following
 ```console
-foo@bar:watflood $ cmake -DCMAKE_Fortran_COMPILER:FILEPATH=/path/to/ifort ..
+foo@bar:build $ cmake -DCMAKE_Fortran_COMPILER:FILEPATH=/path/to/ifort ..
 ```
 Once `cmake` is done, you may continue by using `make`:
 ```console
-foo@bar: watflood $ make
+foo@bar:build $ make
 ```
 
 On a Windows machine, if the `ifort` compiler is not found automatically,
@@ -45,7 +45,7 @@ Currently, there are two build types available for WATFLOOD/CHARM:
 `RELEASE` (default) and `DEBUG`. As an example, you may choose each
 build type as following:
 ```console
-foo@bar:watflood $ cmake -DCMAKE_BUILD_TYPE=RELEASE ../
+foo@bar:build $ cmake -DCMAKE_BUILD_TYPE=RELEASE ../
 ```
 
 # License
